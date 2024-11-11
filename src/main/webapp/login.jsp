@@ -1,5 +1,11 @@
-
+<%@ page import="com.example.ecommerce_jsp_servlet.Model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User auth = (User) request.getSession().getAttribute("auth");
+    if(auth != null){
+        response.sendRedirect("index.jsp");
+    }
+%>
 <html>
 <head>
     <title>Login</title>
