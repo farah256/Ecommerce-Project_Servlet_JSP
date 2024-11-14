@@ -50,7 +50,7 @@
 <div class="container">
     <div class="d-flex py-3">
         <h3>Total Price: $${(total>0)?total:0 }</h3>
-        <a class="mx-3 btn btn-primary" href="#">Check out</a>
+        <a class="mx-3 btn btn-primary" href="checkout">Check out</a>
     </div>
 
     <table class="table table-loght">
@@ -60,6 +60,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Category</th>
                 <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
                 <th scope="col">Buy Now</th>
                 <th scope="col">Cancel</th>
             </tr>
@@ -79,14 +80,17 @@
                     <form action="" method="post" class="form-inline">
                         <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
                         <div class="form-group d-flex justify-content-between">
-                            <a class="btn btn-sm btn-decre" href="quantity"><i class="fas fa-minus-square"></i></a>
-                            <input type="text" name="quantity" value="1" class="form-control" readonly>
-                            <a class="btn btn-sm btn-incre" href="quantity"><i class="fas fa-plus-square"></i></a>
+                            <a class="btn btn-sm btn-decre" href="quantity?action=dec&id=<%= c.getId()%>"><i class="fas fa-minus-square"></i></a>
+                            <input type="text" name="quantity" value="<%= c.getQuantity()%>" class="form-control" readonly>
+                            <a class="btn btn-sm btn-incre" href="quantity?action=inc&id=<%= c.getId()%>"><i class="fas fa-plus-square"></i></a>
                         </div>
 
                     </form>
                 </td>
-                <td><a class="btn btn-danger" href="">Remove</a></td>
+                <td>
+                    <a class="btn btn-success" href="order-now?quantity=1&id=<%= c.getId()%>">Buy</a>
+                </td>
+                <td><a class="btn btn-danger" href="remove-from-cart?id=<%= c.getId()%>">Remove</a></td>
 
             </tr>
             <%
