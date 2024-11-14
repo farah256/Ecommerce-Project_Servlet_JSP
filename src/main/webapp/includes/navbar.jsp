@@ -10,7 +10,8 @@
                     <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.jsp">Cart</a>
+                    <a class="nav-link" href="cart.jsp">Cart
+                    <span class="badge text-bg-danger px-1">${cart_list.size()}</span></a>
                 </li>
                 <% if(auth != null){%>
                     <li class="nav-item">
